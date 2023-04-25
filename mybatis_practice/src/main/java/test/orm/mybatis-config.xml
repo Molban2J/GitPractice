@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+   <!-- mapper에서 매칭할 parameter Type 별칭 설정 -->
+   <typeAliases>
+      <typeAlias type="test.vo.BoardVO" alias="Board"/>
+   </typeAliases>
+   <environments default="development">
+      <!-- environment ID 를 구분하여 연결할 DB을 여러개 구성할 수도 있음 -->
+      <environment id="development">
+         <transactionManager type="JDBC" />
+         <dataSource type="POOLED">
+            <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="url" value="jdbc:mysql://localhost:3306/mydb" />
+            <property name="username" value="root" />
+            <property name="password" value="1234" />
+         </dataSource>
+
+      </environment>
+
+   </environments>
+   <mappers>
+      <mapper
+         resource="test/orm/BoardMapper.xml" />
+   </mappers>
+
+</configuration>
